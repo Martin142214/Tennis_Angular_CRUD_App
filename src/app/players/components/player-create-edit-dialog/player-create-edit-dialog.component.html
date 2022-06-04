@@ -1,0 +1,129 @@
+<form [formGroup]="formGroup"
+      (ngSubmit)="onSubmit()">
+
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">{{player.id ? 'Edit' : 'Create'}} player</h4>
+        <button type="button" (click)="hideDialog()" class="btn-close close pull-right" aria-label="Close">
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div> 
+
+<div class="modal-body">
+
+    <div class="form-group">
+      <label for="firstName">FirstName <span class="text-danger">*</span></label>
+      <input formControlName="firstName"
+             type="text"
+             class="form-control"
+             id="firstName"
+             placeholder="Enter first name">
+      <ng-container *ngIf="formGroup.get('firstName')?.invalid && formGroup.get('firstName')?.touched">
+        <small *ngIf="formGroup.get('firstName')?.errors?.['required']"
+               class="form-text text-danger">This field is required</small>
+        <small *ngIf="formGroup.get('firstName')?.errors?.['minlength']"
+               class="form-text text-danger">The minimum length
+          is {{formGroup.get('firstName')?.errors?.['minlength'].requiredLength}}</small>
+      </ng-container>
+    </div>
+  
+    <div class="form-group">
+      <label for="lastName">LastName <span class="text-danger">*</span></label>
+      <input formControlName="lastName"
+             type="text"
+             class="form-control"
+             id="lastName"
+             placeholder="Enter last name">
+      <ng-container *ngIf="formGroup.get('lastName')?.invalid && formGroup.get('lastName')?.touched">
+        <small *ngIf="formGroup.get('lastName')?.errors?.['required']"
+               class="form-text text-danger">This field is required</small>
+        <small *ngIf="formGroup.get('lastName')?.errors?.['minlength']"
+               class="form-text text-danger">The minimum length
+          is {{formGroup.get('lastName')?.errors?.['minlength'].requiredLength}}</small>
+      </ng-container>
+    </div>
+  
+    <div class="form-group">
+      <label for="country">Country <span class="text-danger">*</span></label>
+      <input formControlName="country"
+             type="text"
+             class="form-control"
+             id="country"
+             placeholder="Enter player's country">
+      <ng-container *ngIf="formGroup.get('country')?.invalid && formGroup.get('country')?.touched">
+        <small *ngIf="formGroup.get('country')?.errors?.['required']"
+               class="form-text text-danger">This field is required</small>
+        <small *ngIf="formGroup.get('country')?.errors?.['minlength']"
+               class="form-text text-danger">The minimum length
+          is {{formGroup.get('country')?.errors?.['minlength'].requiredLength}}</small>
+      </ng-container>
+    </div>
+  
+    <div class="form-group">
+      <label for="dateOfBirth">Date of Birth <span class="text-danger">*</span></label>
+      <input formControlName="dateOfBirth"
+             type="date"
+             class="form-control"
+             id="dateOfBirth"
+             placeholder="Enter DoB">
+      <ng-container *ngIf="formGroup.get('dateOfBirth')?.invalid && formGroup.get('dateOfBirth')?.touched">
+        <small *ngIf="formGroup.get('dateOfBirth')?.errors?.['required']"
+               class="form-text text-danger">This field is required</small>
+      </ng-container>
+    </div>
+  
+    <div class="form-group">
+      <label for="careerTitles">Career titles<span class="text-danger">*</span></label>
+      <input formControlName="careerTitles"
+             id="careerTitles"
+             type="number"
+             class="form-control"
+             placeholder="Enter number of titles">
+      <ng-container *ngIf="formGroup.get('careerTitles')?.invalid && formGroup.get('careerTitles')?.touched">
+        <small *ngIf="formGroup.get('careerTitles')?.errors?.['required']"
+               class="form-text text-danger">This field is required</small>
+        <small *ngIf="formGroup.get('careerTitles')?.errors?.['min']"
+               class="form-text text-danger">The minimum count of titles
+          is {{formGroup.get('careerTitles')?.errors?.['min'].min}}</small>
+      </ng-container>
+    </div>
+
+    <div class="form-group">
+        <label for="currentRanking">Ranking of player<span class="text-danger">*</span></label>
+        <input formControlName="currentRanking"
+               id="currentRanking"
+               type="number"
+               class="form-control"
+               placeholder="Enter rank of player">
+        <ng-container *ngIf="formGroup.get('currentRanking')?.invalid && formGroup.get('currentRanking')?.touched">
+          <small *ngIf="formGroup.get('currentRanking')?.errors?.['required']"
+                 class="form-text text-danger">This field is required</small>
+          <small *ngIf="formGroup.get('currentRanking')?.errors?.['min']"
+               class="form-text text-danger">The highest ranking position
+          is {{formGroup.get('currentRanking')?.errors?.['min'].min}}</small>
+          <small *ngIf="formGroup.get('currentRanking')?.errors?.['max']"
+               class="form-text text-danger">The lowest ranking position
+          is {{formGroup.get('currentRanking')?.errors?.['max'].max}}</small>
+        </ng-container>
+      </div>
+
+      <div class="form-group">
+        <label for="tournament">Tournament <span class="text-danger">*</span></label>
+        <select formControlName="tournamentId" class="form-control" id="tournament">
+          <option *ngFor="let tournament of tournaments" [value]="tournament.id">{{tournament.name}}</option>
+        </select>
+        <ng-container *ngIf="formGroup.get('tournamentId')?.invalid && formGroup.get('tournamentId')?.touched">
+          <small *ngIf="formGroup.get('tournamentId')?.errors?.['required']"
+                 class="form-text text-danger">This field is required</small>
+        </ng-container>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" (click)="hideDialog()"
+                class="btn btn-default">Cancel
+        </button>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+    
+</div>
+
+</form>

@@ -1,0 +1,72 @@
+<div class="d-flex justify-content-between mt-2">
+    <h3>Tournaments</h3>
+    <div>
+      <button class="btn btn-primary" (click)="changeView()">Change view</button> 
+    </div>
+    <div>
+        <button (click)="onCreateClick()" class="btn btn-primary">Create</button>
+    </div>
+  </div>
+  <div *ngIf="isGridView == false">
+    <table class="table table-dark">
+      <thead>
+      <tr>
+        <th hidden>ID</th>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Award points</th>
+        <th>Surface</th>
+        <th>Prize</th>
+        <th>GrandSlam</th>
+        <th>Created</th>
+        <th>Last Updated</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let tournament of tournaments">
+        <td hidden>{{tournament.id}}</td>
+        <td>{{tournament.name}}</td>
+        <td>{{tournament.location}}</td>
+        <td>{{tournament.awardPoints}}</td>
+        <td>{{tournament.surface}}</td>
+        <td>{{tournament.prizeMoney}}</td>
+        <td>{{tournament.isGrandSlam ? 'Yes' : 'No'}}</td>
+        <td>{{tournament.created | date}}</td>
+        <td>{{tournament.lastUpdated | date}}</td>
+        <td>
+          <button (click)="onEditClick(tournament)" class="btn btn-sm btn-outline-primary">Edit</button>
+          <button (click)="onDeleteClick(tournament)" class="btn btn-sm btn-outline-danger ms-2">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="isGridView == true" class="container">
+    <div class="row">
+      <div *ngFor="let tournament of tournaments" class="col-4 mt-3">
+        <div class="card">
+            <div class="card-header">
+                {{tournament.name}}
+            </div>
+            <div class="card-body">
+              <p class="card-text">Location: {{tournament.location}}</p>
+              <p class="card-text">Points: {{tournament.awardPoints}}</p>
+              <p class="card-text">Surface: {{tournament.surface}}</p>
+              <p class="card-text">Prize: {{tournament.prizeMoney}}</p>
+              <p class="card-text">GrandSlam: {{tournament.isGrandSlam ? 'Yes' : 'No'}}</p>
+                  <h5><b>Players</b> to participate:</h5>
+                <div *ngFor="let player of players">
+                    <p *ngIf="player.tournamentId == tournament.id">{{player.firstName}} {{player.lastName}}</p>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button (click)="onEditClick(tournament)" class="btn btn-sm btn-outline-primary">Edit</button>
+            	<button (click)="onDeleteClick(tournament)" class="btn btn-sm btn-outline-danger ms-2">Delete</button>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  

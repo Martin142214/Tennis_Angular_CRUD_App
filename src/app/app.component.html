@@ -1,0 +1,27 @@
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" routerLink="/">Home</a>
+  
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="tournaments" routerLinkActive="active">Tournaments</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="players" routerLinkActive="active">Players</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+  <main role="main" class="container-fluid">
+  
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+  
+  </main>
+
+  <!-- Enable bootstrap 4 theme -->
+<!--<script>window.__theme = 'bs4';</script> -->
+  

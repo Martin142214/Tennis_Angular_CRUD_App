@@ -1,0 +1,109 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "email": "someEmail@em",
+      "phoneNumber": "+087283",
+      "age": 25,
+      "isActive": true
+    },
+    {
+      "id": 2,
+      "username": "admin2",
+      "email": "someEmail@em",
+      "phoneNumber": "+087283",
+      "age": 25,
+      "isActive": true
+    },
+    {
+      "id": 3,
+      "username": "admin3",
+      "email": "someEmail@em",
+      "phoneNumber": "+087283",
+      "age": 25,
+      "isActive": true
+    }
+  ],
+  "tournaments": [
+    {
+      "id": 1,
+      "name": "Roland Garros",
+      "location": "France",
+      "awardPoints": 1000,
+      "surface": "Grass",
+      "prizeMoney": 1000000,
+      "isGrandSlam": true,
+      "lastUpdated": "2022-05-28T08:59:29.764Z"
+    },
+    {
+      "name": "Wimbledon",
+      "location": "Test location",
+      "awardPoints": 800,
+      "surface": "Hard",
+      "prizeMoney": 100000,
+      "isGrandSlam": false,
+      "created": "2022-05-27T18:27:46.307Z",
+      "lastUpdated": "2022-05-28T08:58:48.386Z",
+      "id": 2
+    },
+    {
+      "surface": "Hard",
+      "isGrandSlam": true,
+      "name": "US Open",
+      "location": "USA",
+      "awardPoints": 1500,
+      "prizeMoney": 150000,
+      "created": "2022-05-28T17:32:05.084Z",
+      "lastUpdated": "2022-05-28T17:32:05.084Z",
+      "id": 3
+    },
+    {
+      "surface": "Clay",
+      "isGrandSlam": false,
+      "name": "ATP 1000",
+      "location": "Bulgaria",
+      "awardPoints": 500,
+      "prizeMoney": 156768,
+      "created": "2022-05-28T17:37:50.251Z",
+      "lastUpdated": "2022-05-28T17:37:50.251Z",
+      "id": 4
+    }
+  ],
+  "players": [
+    {
+      "firstName": "Novak",
+      "lastName": "Djokovic",
+      "country": "Serbia",
+      "dateOfBirth": "2022-05-03",
+      "careerTitles": 56,
+      "currentRanking": 1,
+      "tournamentId": "3",
+      "created": "2022-05-29T11:56:22.288Z",
+      "lastUpdated": "2022-05-29T11:56:22.288Z",
+      "id": 1
+    },
+    {
+      "firstName": "Rafael",
+      "lastName": "Nadal",
+      "country": "Spain",
+      "dateOfBirth": "2018-02-21",
+      "careerTitles": 46,
+      "currentRanking": 3,
+      "tournamentId": "1",
+      "created": "2022-05-30T03:10:39.536Z",
+      "lastUpdated": "2022-05-30T03:15:41.104Z",
+      "id": 2,
+      "tournament": {
+        "id": 1,
+        "name": "Roland Garros",
+        "location": "France",
+        "awardPoints": 1000,
+        "surface": "Grass",
+        "prizeMoney": 1000000,
+        "isGrandSlam": true,
+        "lastUpdated": "2022-05-28T08:59:29.764Z"
+      }
+    }
+  ]
+}

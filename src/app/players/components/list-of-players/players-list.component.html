@@ -1,0 +1,69 @@
+<div class="d-flex justify-content-between mt-2">
+    <h3>Players</h3>
+    <div>
+      <button class="btn btn-primary" (click)="changeView()">Change view</button> 
+    </div>
+    <div>
+        <button (click)="onCreateClick()" class="btn btn-primary">Create</button>
+    </div>
+  </div>
+  <div *ngIf="isGridView == false">
+    <table class="table table-dark">
+      <thead>
+      <tr>
+        <th hidden>ID</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Country</th>
+        <th>Date of Birth</th>
+        <th>Career titles</th>
+        <th>Ranking</th>
+        <th>Created</th>
+        <th>Last Updated</th>
+        <th>Tournament:</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let player of players">
+        <td hidden>{{player.id}}</td>
+        <td>{{player.firstName}}</td>
+        <td>{{player.lastName}}</td>
+        <td>{{player.country}}</td>
+        <td>{{player.dateOfBirth | date}}</td>
+        <td>{{player.careerTitles}}</td>
+        <td>{{player.currentRanking}}</td>
+        <td>{{player.created | date}}</td>
+        <td>{{player.lastUpdated | date}}</td>
+        <td>{{player.tournament.name}}</td>
+        <td>
+          <button (click)="onEditClick(player)" class="btn btn-sm btn-outline-primary">Edit</button>
+          <button (click)="onDeleteClick(player)" class="btn btn-sm btn-outline-danger ms-2">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="isGridView == true" class="container">
+    <div class="row">
+      <div *ngFor="let player of players" class="col-4 mt-3">
+        <div class="card">
+            <div class="card-header">
+                {{player.firstName}} {{player.lastName}}
+            </div>
+            <div class="card-body">
+              <p class="card-text">Country: {{player.country}}</p>
+              <p class="card-text">Date of Birth: {{player.dateOfBirth}}</p>
+              <p class="card-text">Career titles: {{player.careerTitles}}</p>
+              <p class="card-text">Ranking: {{player.currentRanking}}</p>
+              <p class="card-text"><b>Tournament:</b> {{player.tournament.name}}</p>
+            </div>
+            <div class="card-footer">
+                <button (click)="onEditClick(player)" class="btn btn-sm btn-outline-primary">Edit</button>
+            	<button (click)="onDeleteClick(player)" class="btn btn-sm btn-outline-danger ms-2">Delete</button>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
